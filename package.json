@@ -1,5 +1,5 @@
 {
-  "name": "@tinyland-inc/tinyland-logging",
+  "name": "@tummycrypt/tinyland-logging",
   "version": "0.1.0",
   "description": "Structured logging with Loki integration, OTel trace correlation, and admin audit logging",
   "type": "module",
@@ -49,5 +49,9 @@
   },
   "engines": {
     "node": ">=22.0.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   }
 }

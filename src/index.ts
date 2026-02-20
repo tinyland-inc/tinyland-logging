@@ -1,5 +1,5 @@
 /**
- * @tinyland-inc/tinyland-logging
+ * @tummycrypt/tinyland-logging
  *
  * Structured logging with Loki integration, OTel trace correlation,
  * and admin audit logging.

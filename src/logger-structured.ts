@@ -125,7 +125,7 @@ async function logInternal(
  *
  * @example
  * ```typescript
- * import { structuredLogger } from '@tinyland-inc/tinyland-logging';
+ * import { structuredLogger } from '@tummycrypt/tinyland-logging';
  *
  * // Simple logging
  * structuredLogger.info('Server started');

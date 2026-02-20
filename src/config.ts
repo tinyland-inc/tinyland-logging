@@ -11,7 +11,7 @@
  *
  * @example
  * ```typescript
- * import { configureLogging } from '@tinyland-inc/tinyland-logging';
+ * import { configureLogging } from '@tummycrypt/tinyland-logging';
  *
  * configureLogging({
  *   writeLog: myWriteLogFn,
