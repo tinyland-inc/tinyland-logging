@@ -1,6 +1,6 @@
 {
   "name": "@tummycrypt/tinyland-logging",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Structured logging with Loki integration, OTel trace correlation, and admin audit logging",
   "type": "module",
   "license": "Zlib AND LicenseRef-Tinyland-Proprietary",
