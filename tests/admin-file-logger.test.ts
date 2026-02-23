@@ -328,7 +328,7 @@ describe('admin-file-logger', () => {
 			configureLogging({ auditLogReader: mockReader });
 			const result = await getAdminFileActivitiesByUser('u1', 50);
 			expect(result).toHaveLength(50);
-			// Should only read from first date since we already have enough
+			
 			expect(mockReader.readLogs).toHaveBeenCalledTimes(1);
 		});
 

@@ -440,7 +440,7 @@ describe('logger-structured', () => {
 
 		it('should log operation duration', async () => {
 			const endTimer = perf({ component: 'perf-test', action: 'lookup' });
-			// Simulate some time passing
+			
 			await new Promise((r) => setTimeout(r, 10));
 			endTimer();
 			expect(writeLogMock).toHaveBeenCalledWith(

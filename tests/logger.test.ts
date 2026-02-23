@@ -62,7 +62,7 @@ describe('logger (Loki push logger)', () => {
 		it('should log with timestamp', () => {
 			lokiLog('INFO', 'timestamp test');
 			const call = consoleSpy.mock.calls[0][0];
-			// Should match ISO timestamp pattern
+			
 			expect(call).toMatch(/\[\d{4}-\d{2}-\d{2}T/);
 		});
 
@@ -226,7 +226,7 @@ describe('logger (Loki push logger)', () => {
 			await flushLogs();
 			const body = JSON.parse(fetchMock.mock.calls[0][1].body);
 			const [timestamp] = body.streams[0].values[0];
-			// Nanosecond timestamps should be very large numbers
+			
 			expect(Number(timestamp)).toBeGreaterThan(1e15);
 		});
 
@@ -275,7 +275,7 @@ describe('logger (Loki push logger)', () => {
 			lokiLog('INFO', 'timer flush');
 			expect(_getBufferLength()).toBe(1);
 			vi.advanceTimersByTime(1000);
-			// Wait for the flush to complete
+			
 			await vi.runAllTimersAsync();
 			expect(fetchMock).toHaveBeenCalled();
 		});

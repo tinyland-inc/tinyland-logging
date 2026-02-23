@@ -22,7 +22,7 @@ describe('admin-logger-flat', () => {
 	let consoleErrorSpy: ReturnType<typeof vi.spyOn>;
 
 	beforeEach(async () => {
-		// Create a temp directory for each test
+		
 		tmpDir = await fs.mkdtemp(path.join('/tmp', 'logging-test-'));
 		resetLoggingConfig();
 		configureLogging({ logsDir: tmpDir });
@@ -32,11 +32,11 @@ describe('admin-logger-flat', () => {
 	afterEach(async () => {
 		consoleErrorSpy.mockRestore();
 		vi.restoreAllMocks();
-		// Clean up temp directory
+		
 		try {
 			await fs.rm(tmpDir, { recursive: true, force: true });
 		} catch {
-			// Ignore cleanup errors
+			
 		}
 	});
 
@@ -44,7 +44,7 @@ describe('admin-logger-flat', () => {
 		it('should create the logs directory if it does not exist', async () => {
 			const logs = await readFlatLogs();
 			expect(logs).toEqual([]);
-			// Verify directory was created
+			
 			const logsDir = path.join(tmpDir, 'content', 'auth', 'logs');
 			const stat = await fs.stat(logsDir);
 			expect(stat.isDirectory()).toBe(true);
@@ -247,7 +247,7 @@ describe('admin-logger-flat', () => {
 		});
 
 		it('should handle errors gracefully', async () => {
-			// Configure with an invalid logsDir to trigger an error
+			
 			configureLogging({ logsDir: '/nonexistent/path/that/cannot/be/created\x00invalid' });
 			await logAdminFlatActivity(
 				{ id: 'u1', email: 'a@b.com' },
@@ -261,7 +261,7 @@ describe('admin-logger-flat', () => {
 
 	describe('1000 log limit', () => {
 		it('should keep only the last 1000 logs', async () => {
-			// Pre-populate with 999 logs
+			
 			const existingLogs: AdminActivityLog[] = Array.from({ length: 999 }, (_, i) => ({
 				id: `existing-${i}`,
 				admin_user_id: 'u1',
@@ -276,7 +276,7 @@ describe('admin-logger-flat', () => {
 			}));
 			await writeFlatLogs(existingLogs);
 
-			// Add 2 more to exceed 1000
+			
 			await logAdminFlatActivity(
 				{ id: 'u1', email: 'a@b.com' },
 				'127.0.0.1',
@@ -318,9 +318,9 @@ describe('admin-logger-flat', () => {
 
 			const logs = await readFlatLogs();
 			expect(logs.length).toBe(1000);
-			// The first old log should be removed
+			
 			expect(logs.find((l) => l.id === 'old-0')).toBeUndefined();
-			// The new log should be present
+			
 			expect(logs[logs.length - 1].action).toBe('new-action');
 		});
 	});
@@ -585,7 +585,7 @@ describe('admin-logger-flat', () => {
 		});
 
 		it('should filter out old logs', async () => {
-			// Write a log with old date
+			
 			await writeFlatLogs([{
 				id: 'old',
 				admin_user_id: 'u1',
