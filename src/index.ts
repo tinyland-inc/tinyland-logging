@@ -1,13 +1,13 @@
-/**
- * @tummycrypt/tinyland-logging
- *
- * Structured logging with Loki integration, OTel trace correlation,
- * and admin audit logging.
- *
- * @packageDocumentation
- */
 
-// Configuration injection
+
+
+
+
+
+
+
+
+
 export {
 	configureLogging,
 	getLoggingConfig,
@@ -22,7 +22,7 @@ export type {
 	AuditLogReader,
 } from './config.js';
 
-// Shared types
+
 export type {
 	FileLogLevel,
 	LogLevel,
@@ -34,7 +34,7 @@ export type {
 	LokiLogEntry,
 } from './types.js';
 
-// Structured logger (OTel-correlated, file-backed)
+
 export {
 	structuredLogger,
 	logger,
@@ -42,14 +42,14 @@ export {
 	perf,
 } from './logger-structured.js';
 
-// Loki push logger (buffered batch sending)
+
 export {
 	lokiLogger,
 	log as lokiLog,
 	flushLogs,
 } from './logger.js';
 
-// Admin file logger (DI-backed audit logging)
+
 export {
 	logAdminActivity as logAdminFileActivity,
 	AdminActions,
@@ -59,7 +59,7 @@ export {
 	adminFileLogger,
 } from './admin-file-logger.js';
 
-// Admin flat-file logger (self-contained file-based)
+
 export {
 	logAdminActivity as logAdminFlatActivity,
 	logAdminAction as logAdminFlatAction,
@@ -73,7 +73,7 @@ export {
 	writeLogs as writeFlatLogs,
 } from './admin-logger-flat.js';
 
-// Internal testing helpers (re-exported for test access)
+
 export {
 	_setTraceApi,
 	_getTraceApi,
